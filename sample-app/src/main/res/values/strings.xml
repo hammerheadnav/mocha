@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Mocha Test</string>
+    <string name="title_activity_main">Mocha Test</string>
+    <string name="email_sent">Email Sent</string>
+</resources>
