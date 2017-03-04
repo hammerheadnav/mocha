@@ -12,8 +12,8 @@ class EspressoActionsDelegator {
 
     internal fun clickDelegate(init: EspressoUiAction.() -> Unit) = delegate(init, { click() })
 
-    internal fun assertDelegate(init: EspressoAssertion.() -> Unit) {
-        EspressoAssertion(init)
+    internal fun assertDelegate(id : Int,init: EspressoAssertion.() -> Unit) {
+        EspressoAssertion(id, init)
     }
 
     private fun delegate(init: EspressoUiAction.() -> Unit, action: (() -> ViewAction)) {

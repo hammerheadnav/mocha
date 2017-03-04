@@ -7,14 +7,19 @@ import android.support.test.espresso.matcher.ViewMatchers
 import io.hammerhead.mocha.api.uiactions.SideEffectDelegator
 
 
-class EspressoAssertion(init: EspressoAssertion.() -> Unit) {
-    private var viewInteraction: ViewInteraction? = null
+class EspressoAssertion(val id: Int, init: EspressoAssertion.() -> Unit) {
+    val viewInteraction: ViewInteraction = Espresso.onView(ViewMatchers.withId(id))
+
     var visibility: ViewMatchers.Visibility by SideEffectDelegator({
-        checkNotNull(viewInteraction, { "Resource Id must be set to do visibility assertion" })
-        viewInteraction!!.check(ViewAssertions.matches(ViewMatchers.withEffectiveVisibility(it)))
+        viewInteraction.check(ViewAssertions.matches(ViewMatchers.withEffectiveVisibility(it)))
     })
-    var id: Int by SideEffectDelegator({
-        viewInteraction = Espresso.onView(ViewMatchers.withId(it))
+
+    var text: String by SideEffectDelegator({
+        viewInteraction.check(ViewAssertions.matches(ViewMatchers.withText(it)))
+    })
+
+    var textResId: Int by SideEffectDelegator({
+        viewInteraction.check(ViewAssertions.matches(ViewMatchers.withText(it)))
     })
 
     init {

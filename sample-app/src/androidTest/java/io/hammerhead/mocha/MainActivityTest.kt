@@ -23,8 +23,7 @@ class MainActivityTest {
 
         testAction("email status text should be invisible") {
             action {
-                expect {
-                    id = R.id.emailStatusText
+                expect(R.id.emailStatusText) {
                     visibility = ViewMatchers.Visibility.GONE
                 }
             }
@@ -35,9 +34,9 @@ class MainActivityTest {
                 click {
                     id = R.id.fab
                 }
-                expect {
-                    id = R.id.emailStatusText
+                expect(R.id.emailStatusText) {
                     visibility = ViewMatchers.Visibility.VISIBLE
+                    textResId = R.string.email_sent
                 }
             }
         }
