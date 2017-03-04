@@ -36,8 +36,8 @@ class MainActivityTest {
                     id = R.id.fab
                 }
                 expect {
-                    visibility = ViewMatchers.Visibility.VISIBLE
                     id = R.id.emailStatusText
+                    visibility = ViewMatchers.Visibility.VISIBLE
                 }
             }
         }
