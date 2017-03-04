@@ -11,3 +11,5 @@ fun UiActions.click(init: UiAction.() -> Unit) {
     val clickAction = ClickAction(init)
     clickAction.invoke()
 }
+
+//fun UiActions.expect(init : )

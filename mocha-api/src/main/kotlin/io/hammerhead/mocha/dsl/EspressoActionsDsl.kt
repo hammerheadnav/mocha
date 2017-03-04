@@ -8,10 +8,6 @@ fun EspressoActionsDelegator.click(init: EspressoUiAction.() -> Unit) {
     this.clickDelegate(init)
 }
 
-fun EspressoActionsDelegator.find(init: EspressoUiAction.() -> Unit) {
-    this.findDelegate(init)
-}
-
 fun EspressoActionsDelegator.expect(init: EspressoAssertion.() -> Unit) {
     this.assertDelegate(init)
 }

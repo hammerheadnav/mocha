@@ -3,7 +3,10 @@ package io.hammerhead.mocha
 import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
-import io.hammerhead.mocha.dsl.*
+import io.hammerhead.mocha.dsl.action
+import io.hammerhead.mocha.dsl.click
+import io.hammerhead.mocha.dsl.expect
+import io.hammerhead.mocha.dsl.testAction
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -20,10 +23,8 @@ class MainActivityTest {
 
         testAction("email status text should be invisible") {
             action {
-                find {
-                    id = R.id.emailStatusText
-                }
                 expect {
+                    id = R.id.emailStatusText
                     visibility = ViewMatchers.Visibility.GONE
                 }
             }
@@ -36,6 +37,7 @@ class MainActivityTest {
                 }
                 expect {
                     visibility = ViewMatchers.Visibility.VISIBLE
+                    id = R.id.emailStatusText
                 }
             }
         }

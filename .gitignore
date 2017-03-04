@@ -7,3 +7,4 @@
 /build
 /captures
 .externalNativeBuild
+/mocha-api/src/main/kotlin/io/hammerhead/mocha/DSTTest.kt
