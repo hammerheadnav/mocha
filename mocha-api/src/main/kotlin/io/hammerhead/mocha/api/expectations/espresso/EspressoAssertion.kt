@@ -23,7 +23,7 @@ class EspressoAssertion(val id: Int, init: EspressoAssertion.() -> Unit) {
     })
 
     var spinnerText: String by SideEffectDelegator({
-        viewInteraction.check(ViewAssertions.matches(ViewMatchers.withSpinnerText(spinnerText)))
+        viewInteraction.check(ViewAssertions.matches(ViewMatchers.withSpinnerText(it)))
     })
 
     init {
