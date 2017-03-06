@@ -11,7 +11,7 @@ import org.hamcrest.Matcher
 class EspressoUiAction(init: EspressoUiAction.() -> Unit, val action: (List<Matcher<View>>) -> ViewInteraction): Function0<ViewInteraction> {
     val matchersList = ArrayList<Matcher<View>>()
 
-    var id: Int by SideEffectDelegator({ matchersList.add(ViewMatchers.withId(it)) })
+    var id: Int by SideEffectDelegator { matchersList.add(ViewMatchers.withId(it)) }
 
     init {
         init()

@@ -1,15 +1,12 @@
 package io.hammerhead.mocha.dsl
 
-import io.hammerhead.mocha.api.uiactions.uiautomator.ClickAction
 import io.hammerhead.mocha.api.uiactions.uiautomator.UiAction
-import io.hammerhead.mocha.api.uiactions.uiautomator.UiActions
+import io.hammerhead.mocha.api.uiactions.uiautomator.UiActionsDelegator
 
-/**
- * UI Actions
- */
-fun UiActions.click(init: UiAction.() -> Unit) {
-    val clickAction = ClickAction(init)
-    clickAction.invoke()
+fun UiActionsDelegator.click(init: UiAction.() -> Unit) {
+    this.clickDelegate(init)
 }
 
-//fun UiActions.expect(init : )
+fun UiActionsDelegator.expectNotNull(init: UiAction.() -> Unit) {
+    this.expectNotNullDelegate(init)
+}

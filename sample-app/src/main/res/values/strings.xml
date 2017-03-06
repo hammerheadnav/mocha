@@ -2,4 +2,13 @@
     <string name="app_name">Mocha Test</string>
     <string name="title_activity_main">Mocha Test</string>
     <string name="email_sent">Email Sent</string>
+    <string name="mocha_is_awesome">Mocha is awesome.</string>
+    <string name="mocha_still_awesome">Mocha is still awesome.</string>
+    <string name="change_text">Change Text</string>
+    <string-array name="spinner_values">
+        <item>Espresso</item>
+        <item>UiAutomator</item>
+        <item>Mocha</item>
+
+    </string-array>
 </resources>

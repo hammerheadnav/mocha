@@ -1,21 +1,21 @@
 package io.hammerhead.mocha.api.uiactions.uiautomator
 
-import android.support.test.InstrumentationRegistry
-import android.support.test.uiautomator.UiDevice
 import android.support.test.uiautomator.UiSelector
 import io.hammerhead.mocha.api.uiactions.SideEffectDelegator
 import io.hammerhead.mocha.dsl.DslTagMarker
 
 @DslTagMarker
-abstract class UiAction(init: UiAction.() -> Unit) {
-    val uiDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+class UiAction(init: UiAction.() -> Unit, val action: (UiSelector) -> Unit) {
     var uiSelector = UiSelector()
 
-    var resourceId: String by SideEffectDelegator({ uiSelector = uiSelector.resourceId(it) })
+    var resourceId: String by SideEffectDelegator { uiSelector = uiSelector.resourceId(it) }
+    var text: String by SideEffectDelegator { uiSelector = uiSelector.text(it) }
 
     init {
         init()
     }
 
-    abstract fun invoke()
+    fun invoke() {
+        action(uiSelector)
+    }
 }

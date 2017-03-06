@@ -13,14 +13,36 @@
     tools:context="io.hammerhead.mocha.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:id="@+id/emailStatusText"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:id="@+id/spinnerView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="@dimen/text_size"
-        android:visibility="gone"
-        android:text="@string/email_sent"
-        tools:visibility="visible" />
+        android:entries="@array/spinner_values" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerView">
+
+        <TextView
+            android:id="@+id/mochaTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/mocha_is_awesome"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/mocha_text_size" />
+
+        <Button
+            android:id="@+id/changeTextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/padding_button"
+            android:text="@string/change_text" />
+
+    </LinearLayout>
+
 
 </RelativeLayout>
