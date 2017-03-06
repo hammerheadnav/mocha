@@ -11,7 +11,6 @@ class UiActionsDelegator {
 
     internal fun clickDelegate(init: UiAction.() -> Unit) = delegate(init, { uiDevice.findObject(it).click() })
 
-    internal fun expectNotNullDelegate(init: UiAction.() -> Unit) = delegate(init, { checkNotNull { uiDevice.findObject(it) } })
 
     private fun delegate(init: UiAction.() -> Unit, action: (UiSelector) -> Unit) {
         UiAction(init, action).invoke()

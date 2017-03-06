@@ -16,6 +16,7 @@ class UiAction(init: UiAction.() -> Unit, val action: (UiSelector) -> Unit) {
     }
 
     fun invoke() {
-        action(uiSelector)
+        return action(uiSelector)
     }
+
 }
