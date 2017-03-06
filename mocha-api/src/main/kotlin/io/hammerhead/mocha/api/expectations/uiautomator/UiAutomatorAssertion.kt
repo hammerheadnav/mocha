@@ -12,11 +12,11 @@ class UiAutomatorAssertion(init: UiAutomatorAssertion.() -> Unit, private val ui
         init()
     }
 
-    private fun checkExists(uiObject: UiObject, isExist: Boolean): Boolean {
+    private fun checkExists(uiObject: UiObject, isExist: Boolean) {
         if (isExist)
-            return uiObject.exists()
+            check(uiObject.exists(), { "Element does not exist" })
         else
-            return !uiObject.exists()
+            check(!uiObject.exists(), { "Element exists" })
     }
 }
 

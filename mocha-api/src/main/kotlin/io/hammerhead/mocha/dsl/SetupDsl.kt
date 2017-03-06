@@ -5,5 +5,4 @@ import io.hammerhead.mocha.api.setup.Setup
 
 fun Setup.lauchActivity(init: ActivityManagerI.() -> Unit) {
     launchActivityDelegate(init)
-
 }
