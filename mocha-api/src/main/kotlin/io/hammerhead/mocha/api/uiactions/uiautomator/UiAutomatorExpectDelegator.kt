@@ -12,10 +12,10 @@ class UiAutomatorExpectDelegator {
     internal fun onDelegate(init: UiAction.() -> Unit) {
         UiAction(init, {
             uiObject = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation()).findObject(it)
-        })
+        }).invoke()
     }
 
-    internal fun assertDelegate(init: UiAutomatorAssertion.() -> Unit) = {
+    internal fun assertDelegate(init: UiAutomatorAssertion.() -> Unit) {
         checkNotNull(uiObject, { "Missing on { } block before assert { }" })
         UiAutomatorAssertion(init, uiObject!!)
     }

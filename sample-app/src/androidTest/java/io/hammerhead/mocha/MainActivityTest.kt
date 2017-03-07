@@ -76,6 +76,17 @@ class MainActivityTest {
                     }
                 }
             }
+
+            automatorAction {
+                expect {
+                    on {
+                        text = "Mocha is awesome."
+                    }
+                    assert {
+                        exists = true
+                    }
+                }
+            }
         }
     }
 }
