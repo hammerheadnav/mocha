@@ -8,10 +8,13 @@ import io.hammerhead.mocha.dsl.DslTagMarker
 import org.hamcrest.Matcher
 
 @DslTagMarker
-class EspressoUiAction(init: EspressoUiAction.() -> Unit, val action: (List<Matcher<View>>) -> ViewInteraction): Function0<ViewInteraction> {
+class EspressoUiAction(init: EspressoUiAction.() -> Unit, val action: (List<Matcher<View>>) -> ViewInteraction) : Function0<ViewInteraction> {
     val matchersList = ArrayList<Matcher<View>>()
 
     var id: Int by SideEffectDelegator { matchersList.add(ViewMatchers.withId(it)) }
+    var ids: IntArray by SideEffectDelegator {
+        it.forEach { matchersList.add(ViewMatchers.withId(it)) }
+    }
 
     init {
         init()
