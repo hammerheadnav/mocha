@@ -15,6 +15,8 @@ class EspressoUiAction(init: EspressoUiAction.() -> Unit, val action: (List<Matc
     var ids: IntArray by SideEffectDelegator {
         it.forEach { matchersList.add(ViewMatchers.withId(it)) }
     }
+    var resName: String by SideEffectDelegator { matchersList.add(ViewMatchers.withResourceName(it)) }
+    var text: String by SideEffectDelegator { matchersList.add(ViewMatchers.withText(it)) }
 
     init {
         init()
