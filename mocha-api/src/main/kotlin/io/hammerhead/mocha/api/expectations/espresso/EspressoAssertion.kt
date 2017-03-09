@@ -6,7 +6,6 @@ import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.view.View
 import org.hamcrest.Matcher
-import org.hamcrest.Matchers.not
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
@@ -16,13 +15,8 @@ class EspressoAssertion(init: EspressoAssertion.() -> Unit, private val viewInte
     var text: String by Delegator(::withText)
     var textResId: Int by Delegator(::withText)
     var spinnerText: String by Delegator(::withSpinnerText)
-    var enabled: Boolean by Delegator {
-        if (it) {
-            isEnabled()
-        } else {
-            not(isEnabled())
-        }
-    }
+    var enabled: Boolean by Delegator(::withEnabled)
+    var checked: Boolean by Delegator { if (it) isChecked() else isNotChecked() }
     var color: Int by Delegator(::withTextColor)
 
     inner class Delegator<K, T>(val block: (T) -> Matcher<View>) : ReadWriteProperty<K, T> {
