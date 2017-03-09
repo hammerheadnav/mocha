@@ -14,7 +14,7 @@ class EspressoUiAction(init: EspressoUiAction.() -> Unit, val action: (List<Matc
     var id: Int by SideEffectDelegator { matchersList.add(ViewMatchers.withId(it)) }
     var resName: String by SideEffectDelegator { matchersList.add(ViewMatchers.withResourceName(it)) }
     var text: String by SideEffectDelegator { matchersList.add(ViewMatchers.withText(it)) }
-    var assignableFrom: Class<View> by SideEffectDelegator { matchersList.add(ViewMatchers.isAssignableFrom(it)) }
+    var assignableFrom: Class<out View> by SideEffectDelegator { matchersList.add(ViewMatchers.isAssignableFrom(it)) }
 
     init {
         init()
