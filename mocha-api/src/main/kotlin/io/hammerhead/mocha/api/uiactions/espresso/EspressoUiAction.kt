@@ -12,14 +12,9 @@ class EspressoUiAction(init: EspressoUiAction.() -> Unit, val action: (List<Matc
     val matchersList = ArrayList<Matcher<View>>()
 
     var id: Int by SideEffectDelegator { matchersList.add(ViewMatchers.withId(it)) }
-    var ids: IntArray by SideEffectDelegator {
-        it.forEach { matchersList.add(ViewMatchers.withId(it)) }
-    }
     var resName: String by SideEffectDelegator { matchersList.add(ViewMatchers.withResourceName(it)) }
     var text: String by SideEffectDelegator { matchersList.add(ViewMatchers.withText(it)) }
-    var texts: Array<String> by SideEffectDelegator {
-        it.forEach { matchersList.add(ViewMatchers.withText(it)) }
-    }
+    var assignableFrom: Class<View> by SideEffectDelegator { matchersList.add(ViewMatchers.isAssignableFrom(it)) }
 
     init {
         init()
