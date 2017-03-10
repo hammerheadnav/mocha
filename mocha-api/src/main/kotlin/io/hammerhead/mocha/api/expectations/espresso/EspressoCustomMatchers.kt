@@ -13,7 +13,7 @@ import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
 
 
-fun withTextColor(color: Int): Matcher<View> {
+internal fun withTextColor(color: Int): Matcher<View> {
     return object : BoundedMatcher<View, TextView>(TextView::class.java) {
         override fun matchesSafely(textView: TextView): Boolean {
             return color == textView.currentTextColor
@@ -25,7 +25,7 @@ fun withTextColor(color: Int): Matcher<View> {
     }
 }
 
-fun withEnabled(shouldBeEnabled: Boolean): Matcher<View> {
+internal fun withEnabled(shouldBeEnabled: Boolean): Matcher<View> {
     return object : BoundedMatcher<View, View>(View::class.java) {
         override fun matchesSafely(view: View): Boolean {
             return shouldBeEnabled == view.isEnabled
@@ -37,7 +37,7 @@ fun withEnabled(shouldBeEnabled: Boolean): Matcher<View> {
     }
 }
 
-fun withBackground(resourceId: Int): Matcher<View> {
+internal fun withBackground(resourceId: Int): Matcher<View> {
     return object : TypeSafeMatcher<View>() {
 
         override fun matchesSafely(view: View): Boolean {
@@ -50,7 +50,7 @@ fun withBackground(resourceId: Int): Matcher<View> {
     }
 }
 
-fun withCompoundDrawable(resourceId: Int): Matcher<View> {
+internal fun withCompoundDrawable(resourceId: Int): Matcher<View> {
     return object : BoundedMatcher<View, TextView>(TextView::class.java) {
         override fun describeTo(description: Description) {
             description.appendText("has compound drawable resource " + resourceId)
@@ -67,7 +67,7 @@ fun withCompoundDrawable(resourceId: Int): Matcher<View> {
     }
 }
 
-fun withImageDrawable(resourceId: Int): Matcher<View> {
+internal fun withImageDrawable(resourceId: Int): Matcher<View> {
     return object : BoundedMatcher<View, ImageView>(ImageView::class.java!!) {
         override fun describeTo(description: Description) {
             description.appendText("has image drawable resource " + resourceId)

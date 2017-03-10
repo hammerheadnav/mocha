@@ -20,6 +20,7 @@ class EspressoAssertion(init: EspressoAssertion.() -> Unit, private val viewInte
     var checked: Boolean by Delegator { if (it) isChecked() else isNotChecked() }
     var color: Int by Delegator(::withTextColor)
     var displayed: Boolean by Delegator {  if(it) isDisplayed() else not(isDisplayed())}
+    var backgroundResId: Int by Delegator(::withBackground)
 
     inner class Delegator<K, T>(val block: (T) -> Matcher<View>) : ReadWriteProperty<K, T> {
         override fun getValue(thisRef: K, property: KProperty<*>): T {
