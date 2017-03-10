@@ -5,6 +5,7 @@ import android.support.test.espresso.assertion.ViewAssertions
 import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.view.View
+import org.hamcrest.CoreMatchers.not
 import org.hamcrest.Matcher
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
@@ -18,6 +19,7 @@ class EspressoAssertion(init: EspressoAssertion.() -> Unit, private val viewInte
     var enabled: Boolean by Delegator(::withEnabled)
     var checked: Boolean by Delegator { if (it) isChecked() else isNotChecked() }
     var color: Int by Delegator(::withTextColor)
+    var displayed: Boolean by Delegator {  if(it) isDisplayed() else not(isDisplayed())}
 
     inner class Delegator<K, T>(val block: (T) -> Matcher<View>) : ReadWriteProperty<K, T> {
         override fun getValue(thisRef: K, property: KProperty<*>): T {
