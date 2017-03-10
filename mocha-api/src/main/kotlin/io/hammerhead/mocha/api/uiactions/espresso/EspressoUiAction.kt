@@ -6,6 +6,7 @@ import android.view.View
 import io.hammerhead.mocha.api.uiactions.SideEffectDelegator
 import io.hammerhead.mocha.dsl.DslTagMarker
 import org.hamcrest.Matcher
+import org.hamcrest.Matchers.startsWith
 
 @DslTagMarker
 class EspressoUiAction(init: EspressoUiAction.() -> Unit, val action: (List<Matcher<View>>) -> ViewInteraction) : Function0<ViewInteraction> {
@@ -15,6 +16,7 @@ class EspressoUiAction(init: EspressoUiAction.() -> Unit, val action: (List<Matc
     var resName: String by SideEffectDelegator { matchersList.add(ViewMatchers.withResourceName(it)) }
     var text: String by SideEffectDelegator { matchersList.add(ViewMatchers.withText(it)) }
     var assignableFrom: Class<out View> by SideEffectDelegator { matchersList.add(ViewMatchers.isAssignableFrom(it)) }
+    var textStartsWith: String by SideEffectDelegator {matchersList.add(ViewMatchers.withText(startsWith(it)))}
 
     init {
         init()
