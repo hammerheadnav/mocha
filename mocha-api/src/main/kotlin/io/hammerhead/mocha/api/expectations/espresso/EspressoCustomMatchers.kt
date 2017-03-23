@@ -16,6 +16,7 @@ import org.hamcrest.TypeSafeMatcher
 internal fun withTextColor(color: Int): Matcher<View> {
     return object : BoundedMatcher<View, TextView>(TextView::class.java) {
         override fun matchesSafely(textView: TextView): Boolean {
+            println("************************* ${textView.currentTextColor}")
             return color == textView.currentTextColor
         }
 
