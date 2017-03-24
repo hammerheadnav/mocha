@@ -23,6 +23,8 @@ class EspressoUiAction(init: EspressoUiAction.() -> Unit, val action: (List<Matc
     var imageDrawableId: Int by SideEffectDelegator { matchersList.add(withImageDrawable(it)) }
     var compoundDrawableId: Int by SideEffectDelegator { matchersList.add(withCompoundDrawable(it)) }
     var backgroundResId: Int by SideEffectDelegator { matchersList.add(withBackground(it)) }
+    var withContentDescriptionId: Int by SideEffectDelegator { matchersList.add(ViewMatchers.withContentDescription(it))}
+    var withContentDescriptionString: String by SideEffectDelegator { matchersList.add(ViewMatchers.withContentDescription(it)) }
 
     init {
         init()
