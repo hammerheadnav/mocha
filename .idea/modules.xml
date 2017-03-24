@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/mocha.iml" filepath="$PROJECT_DIR$/mocha.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mocha.iml" filepath="$PROJECT_DIR$/mocha.iml" />
       <module fileurl="file://$PROJECT_DIR$/mocha-api/mocha-api.iml" filepath="$PROJECT_DIR$/mocha-api/mocha-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mocha-api/mocha-api.iml" filepath="$PROJECT_DIR$/mocha-api/mocha-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sample-app/sample-app.iml" filepath="$PROJECT_DIR$/sample-app/sample-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample-app/sample-app.iml" filepath="$PROJECT_DIR$/sample-app/sample-app.iml" />
     </modules>
   </component>

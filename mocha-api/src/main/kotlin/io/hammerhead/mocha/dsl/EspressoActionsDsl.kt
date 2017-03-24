@@ -16,6 +16,22 @@ fun EspressoActionsDelegator.clearText(init: EspressoUiAction.() -> Unit){
     this.clearTextDelegate(init)
 }
 
+fun EspressoActionsDelegator.swipeDown(init: EspressoUiAction.() -> Unit){
+    this.swipeDownDelegate(init)
+}
+
+fun EspressoActionsDelegator.swipeUp(init: EspressoUiAction.() -> Unit){
+    this.swipeUpDelegate(init)
+}
+
+fun EspressoActionsDelegator.swipeRight(init: EspressoUiAction.() -> Unit){
+    this.swipeRightDelegate(init)
+}
+
+fun EspressoActionsDelegator.swipeLeft(init: EspressoUiAction.() -> Unit){
+    this.swipeLeftDelegate(init)
+}
+
 fun EspressoActionsDelegator.expect(init: EspressoExpectDelegator.() -> Unit) {
     EspressoExpectDelegator().init()
 }
