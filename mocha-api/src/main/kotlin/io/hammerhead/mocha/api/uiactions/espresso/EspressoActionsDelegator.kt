@@ -15,6 +15,14 @@ class EspressoActionsDelegator {
 
     internal fun clearTextDelegate(init: EspressoUiAction.() -> Unit) = delegate(init, { clearText() })
 
+    internal fun swipeDownDelegate(init: EspressoUiAction.() -> Unit) = delegate(init, { swipeDown() })
+
+    internal fun swipeUpDelegate(init: EspressoUiAction.() -> Unit) = delegate(init, { swipeUp() })
+
+    internal fun swipeRightDelegate(init: EspressoUiAction.() -> Unit) = delegate(init, { swipeRight() })
+
+    internal fun swipeLeftDelegate(init: EspressoUiAction.() -> Unit) = delegate(init, { swipeLeft() })
+
     private fun delegate(init: EspressoUiAction.() -> Unit, action: (() -> ViewAction)) {
         EspressoUiAction(init, {
             onView(allOf(it)).perform(action())
