@@ -32,6 +32,10 @@ fun EspressoActionsDelegator.swipeLeft(init: EspressoUiAction.() -> Unit){
     this.swipeLeftDelegate(init)
 }
 
+fun EspressoActionsDelegator.pressKey(int: Int, init: EspressoUiAction.() -> Unit){
+    this.pressKeyDelegate(int, init)
+}
+
 fun EspressoActionsDelegator.expect(init: EspressoExpectDelegator.() -> Unit) {
     EspressoExpectDelegator().init()
 }
