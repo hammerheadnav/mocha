@@ -23,7 +23,7 @@ class EspressoActionsDelegator {
 
     internal fun swipeLeftDelegate(init: EspressoUiAction.() -> Unit) = delegate(init, { swipeLeft() })
 
-    internal fun pressKeyDelegate(int: Int, init: EspressoUiAction.() -> Unit) = delegate(init, { pressKey(int) })
+    internal fun pressKeyDelegate(int: Int) = pressKey(int)
 
     private fun delegate(init: EspressoUiAction.() -> Unit, action: (() -> ViewAction)) {
         EspressoUiAction(init, {
