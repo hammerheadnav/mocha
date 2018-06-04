@@ -83,7 +83,9 @@ class MainActivityTest {
                         text = "Mocha is awesome."
                     }
                     assert {
-                        exists = true
+                        customCheck = {
+                            uiObject.childCount > 10
+                        }
                     }
                 }
             }

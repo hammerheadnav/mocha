@@ -4,7 +4,7 @@ import android.support.test.uiautomator.UiObject
 import io.hammerhead.mocha.api.uiactions.SideEffectDelegator
 
 
-class UiAutomatorAssertion(init: UiAutomatorAssertion.() -> Unit, private val uiObject: UiObject) {
+class UiAutomatorAssertion(init: UiAutomatorAssertion.() -> Unit, val uiObject: UiObject) {
     var text: String by SideEffectDelegator { check(uiObject.text == it, { "Expected $it Actual ${uiObject.text}" }) }
     var exists: Boolean by SideEffectDelegator { check(uiObject.exists() == it) }
     var waitForExists: Long by SideEffectDelegator { check(uiObject.waitForExists(it) == true)  }
@@ -18,6 +18,7 @@ class UiAutomatorAssertion(init: UiAutomatorAssertion.() -> Unit, private val ui
     var isScrollable: Boolean by SideEffectDelegator { check(uiObject.isScrollable() == it)}
     var isSelected: Boolean by SideEffectDelegator { check(uiObject.isSelected() == it)}
     var longClick: Boolean by SideEffectDelegator { check(uiObject.longClick() == it)}
+    var customCheck: (() -> Boolean) by SideEffectDelegator { check(it()) }
 
     init {
         init()
