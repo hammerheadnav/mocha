@@ -3,6 +3,7 @@ package io.hammerhead.mocha
 import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
+import android.support.test.uiautomator.By
 import io.hammerhead.mocha.dsl.*
 import org.junit.Rule
 import org.junit.Test
@@ -77,7 +78,8 @@ class MainActivityTest {
                 }
             }
 
-            automatorAction {
+            automatorAction2 {
+                click2 { className = By.clazz("dd") }
                 expect {
                     on {
                         text = "Mocha is awesome."

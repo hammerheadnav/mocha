@@ -1,6 +1,7 @@
 package io.hammerhead.mocha.api.expectations.uiautomator
 
 import android.support.test.uiautomator.UiObject
+import android.support.test.uiautomator.UiObject2
 import io.hammerhead.mocha.api.uiactions.SideEffectDelegator
 
 

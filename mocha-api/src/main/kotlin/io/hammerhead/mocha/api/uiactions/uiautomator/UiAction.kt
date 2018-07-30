@@ -1,5 +1,6 @@
 package io.hammerhead.mocha.api.uiactions.uiautomator
 
+import android.support.test.uiautomator.BySelector
 import android.support.test.uiautomator.UiSelector
 import io.hammerhead.mocha.api.uiactions.SideEffectDelegator
 import io.hammerhead.mocha.dsl.DslTagMarker
